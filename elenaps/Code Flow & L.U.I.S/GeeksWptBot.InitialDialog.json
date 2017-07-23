@@ -1,0 +1,815 @@
+{
+  "luis_schema_version": "2.1.0",
+  "versionId": "0.1",
+  "name": "GeeksWptBot.InitialDialog",
+  "desc": "",
+  "culture": "es-es",
+  "intents": [
+    {
+      "name": "farewells"
+    },
+    {
+      "name": "greetings"
+    },
+    {
+      "name": "help"
+    },
+    {
+      "name": "members"
+    },
+    {
+      "name": "None"
+    },
+    {
+      "name": "posts"
+    },
+    {
+      "name": "team"
+    }
+  ],
+  "entities": [],
+  "composites": [
+    {
+      "name": "DateTimeComposite",
+      "children": [
+        "number",
+        "DateTime",
+        "DateTimePeriod",
+        "DateTimeMonth",
+        "DateTimeWeek"
+      ]
+    }
+  ],
+  "closedLists": [
+    {
+      "name": "Authors",
+      "subLists": [
+        {
+          "canonicalForm": "Cristian",
+          "list": [
+            "cristian",
+            "manteiga"
+          ]
+        },
+        {
+          "canonicalForm": "Kenny",
+          "list": [
+            "kenny",
+            "keny"
+          ]
+        },
+        {
+          "canonicalForm": "Pedro",
+          "list": [
+            "pedro"
+          ]
+        },
+        {
+          "canonicalForm": "Elena",
+          "list": [
+            "elena",
+            "epsanchez"
+          ]
+        },
+        {
+          "canonicalForm": "Sergio",
+          "list": [
+            "Sergio",
+            "Gallardo",
+            "Ikeín y yo",
+            "gallardo"
+          ]
+        },
+        {
+          "canonicalForm": "Daniel",
+          "list": [
+            "dani",
+            "daniel"
+          ]
+        },
+        {
+          "canonicalForm": "Luis",
+          "list": [
+            "luis"
+          ]
+        },
+        {
+          "canonicalForm": "Angel",
+          "list": [
+            "angel",
+            "ángel"
+          ]
+        },
+        {
+          "canonicalForm": "Francisco",
+          "list": [
+            "francisco",
+            "fran",
+            "olmedo"
+          ]
+        },
+        {
+          "canonicalForm": "Eduardo",
+          "list": [
+            "edu",
+            "eduardo"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "subLists": [
+        {
+          "canonicalForm": "CSharp",
+          "list": [
+            "c#",
+            "c sharp",
+            "csharp",
+            "c-sharp"
+          ]
+        },
+        {
+          "canonicalForm": "Uwp",
+          "list": [
+            "universal windows platform",
+            "uwp"
+          ]
+        },
+        {
+          "canonicalForm": "Node",
+          "list": [
+            "node.js",
+            "node"
+          ]
+        },
+        {
+          "canonicalForm": "Bot",
+          "list": [
+            "bot",
+            "botframework",
+            "bot framework"
+          ]
+        },
+        {
+          "canonicalForm": "Luis",
+          "list": [
+            "language understanding intelligent service",
+            "l.u.i.s"
+          ]
+        },
+        {
+          "canonicalForm": "JavaScript",
+          "list": [
+            "javascript",
+            "js",
+            "java script"
+          ]
+        },
+        {
+          "canonicalForm": "Wpf",
+          "list": [
+            "windows presentation foundation",
+            "wpf"
+          ]
+        },
+        {
+          "canonicalForm": "Iot",
+          "list": [
+            "internet of things",
+            "iot"
+          ]
+        },
+        {
+          "canonicalForm": "MongoDb",
+          "list": [
+            "mongodb",
+            "mongo"
+          ]
+        },
+        {
+          "canonicalForm": "Microservices",
+          "list": [
+            "microservices",
+            "microservice"
+          ]
+        },
+        {
+          "canonicalForm": "Docker",
+          "list": [
+            "docker",
+            "dockers"
+          ]
+        },
+        {
+          "canonicalForm": "Git",
+          "list": [
+            "git"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "subLists": [
+        {
+          "canonicalForm": "Email",
+          "list": [
+            "email",
+            "mail",
+            "e-mail",
+            "correo"
+          ]
+        },
+        {
+          "canonicalForm": "Web",
+          "list": [
+            "web"
+          ]
+        },
+        {
+          "canonicalForm": "Twitter",
+          "list": [
+            "twitter"
+          ]
+        },
+        {
+          "canonicalForm": "Facebook",
+          "list": [
+            "facebook"
+          ]
+        },
+        {
+          "canonicalForm": "Blog",
+          "list": [
+            "blog"
+          ]
+        },
+        {
+          "canonicalForm": "Address",
+          "list": [
+            "dirección",
+            "calle"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DateTime",
+      "subLists": [
+        {
+          "canonicalForm": "Month",
+          "list": [
+            "mes",
+            "meses"
+          ]
+        },
+        {
+          "canonicalForm": "Year",
+          "list": [
+            "año",
+            "años"
+          ]
+        },
+        {
+          "canonicalForm": "Day",
+          "list": [
+            "día",
+            "días"
+          ]
+        },
+        {
+          "canonicalForm": "Morning",
+          "list": [
+            "mañana",
+            "mañanas"
+          ]
+        },
+        {
+          "canonicalForm": "Evening",
+          "list": [
+            "tarde",
+            "tardes"
+          ]
+        },
+        {
+          "canonicalForm": "Week",
+          "list": [
+            "semana",
+            "semanas"
+          ]
+        },
+        {
+          "canonicalForm": "Fortnight \t",
+          "list": [
+            "quincena"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DateTimeMonth",
+      "subLists": [
+        {
+          "canonicalForm": "January",
+          "list": [
+            "enero"
+          ]
+        },
+        {
+          "canonicalForm": "April",
+          "list": [
+            "abril"
+          ]
+        },
+        {
+          "canonicalForm": "February",
+          "list": [
+            "febrero"
+          ]
+        },
+        {
+          "canonicalForm": "March",
+          "list": [
+            "marzo"
+          ]
+        },
+        {
+          "canonicalForm": "May",
+          "list": [
+            "mayo"
+          ]
+        },
+        {
+          "canonicalForm": "June",
+          "list": [
+            "junio"
+          ]
+        },
+        {
+          "canonicalForm": "July",
+          "list": [
+            "julio"
+          ]
+        },
+        {
+          "canonicalForm": "August",
+          "list": [
+            "agosto"
+          ]
+        },
+        {
+          "canonicalForm": "September",
+          "list": [
+            "septiembre"
+          ]
+        },
+        {
+          "canonicalForm": "October",
+          "list": [
+            "octubre"
+          ]
+        },
+        {
+          "canonicalForm": "November",
+          "list": [
+            "noviembre"
+          ]
+        },
+        {
+          "canonicalForm": "December",
+          "list": [
+            "diciembre"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DateTimePeriod",
+      "subLists": [
+        {
+          "canonicalForm": "Before",
+          "list": [
+            "pasado",
+            "pasados",
+            "último",
+            "últimos",
+            "anterior",
+            "anteriores"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DateTimeWeek",
+      "subLists": [
+        {
+          "canonicalForm": "Monday",
+          "list": [
+            "lunes"
+          ]
+        },
+        {
+          "canonicalForm": "Tuesday",
+          "list": [
+            "martes"
+          ]
+        },
+        {
+          "canonicalForm": "Wednesday",
+          "list": [
+            "miércoles"
+          ]
+        },
+        {
+          "canonicalForm": "Thuesday",
+          "list": [
+            "jueves"
+          ]
+        },
+        {
+          "canonicalForm": "Friday",
+          "list": [
+            "viernes"
+          ]
+        },
+        {
+          "canonicalForm": "Saturday",
+          "list": [
+            "sábado",
+            "sábados",
+            "sabado",
+            "sabados"
+          ]
+        },
+        {
+          "canonicalForm": "Sunday",
+          "list": [
+            "domingo",
+            "domingos"
+          ]
+        }
+      ]
+    }
+  ],
+  "bing_entities": [
+    "number"
+  ],
+  "actions": [],
+  "model_features": [],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "hola",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "buenas noches",
+      "intent": "farewells",
+      "entities": []
+    },
+    {
+      "text": "buenos días",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "necesito ayuda",
+      "intent": "help",
+      "entities": []
+    },
+    {
+      "text": "hey",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "buenas tardes",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "buenas",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "hola!",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "adios!",
+      "intent": "farewells",
+      "entities": []
+    },
+    {
+      "text": "holi",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "hasta luego",
+      "intent": "farewells",
+      "entities": []
+    },
+    {
+      "text": "chao",
+      "intent": "farewells",
+      "entities": []
+    },
+    {
+      "text": "ola",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "alo",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "bye",
+      "intent": "farewells",
+      "entities": []
+    },
+    {
+      "text": "ciao",
+      "intent": "farewells",
+      "entities": []
+    },
+    {
+      "text": "ey",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "bye bye",
+      "intent": "farewells",
+      "entities": []
+    },
+    {
+      "text": "qué pasa",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "hasta lue",
+      "intent": "farewells",
+      "entities": []
+    },
+    {
+      "text": "venga",
+      "intent": "farewells",
+      "entities": []
+    },
+    {
+      "text": "ola que ase",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "quiero ver post sobre bots",
+      "intent": "posts",
+      "entities": []
+    },
+    {
+      "text": "me gustaría ver los post que tenéis de c#",
+      "intent": "posts",
+      "entities": []
+    },
+    {
+      "text": "cómo puedes ayudarme",
+      "intent": "help",
+      "entities": []
+    },
+    {
+      "text": "a qué os dedicáis",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "cómo puedo contactar con vosotros",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "dame el twitter de ángel",
+      "intent": "members",
+      "entities": []
+    },
+    {
+      "text": "quiénes sois",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "qué tecnologías usáis?",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "qué pacha",
+      "intent": "greetings",
+      "entities": []
+    },
+    {
+      "text": "mil gracias, adios",
+      "intent": "farewells",
+      "entities": []
+    },
+    {
+      "text": "necesito ayuda para saber qué tipo de filtros puedo usar",
+      "intent": "help",
+      "entities": []
+    },
+    {
+      "text": "ayudame con los tipos de filtros que puedo usar",
+      "intent": "help",
+      "entities": []
+    },
+    {
+      "text": "cómo puedo filtrar",
+      "intent": "help",
+      "entities": []
+    },
+    {
+      "text": "cómo puedo buscar",
+      "intent": "help",
+      "entities": []
+    },
+    {
+      "text": "cómo puedo filtrar los post",
+      "intent": "help",
+      "entities": []
+    },
+    {
+      "text": "qué tipo de filtros puedo usar",
+      "intent": "help",
+      "entities": []
+    },
+    {
+      "text": "cómo puedo preguntar por los post",
+      "intent": "help",
+      "entities": []
+    },
+    {
+      "text": "no sé como funcionan las búsquedas, puedes ayudarme",
+      "intent": "help",
+      "entities": []
+    },
+    {
+      "text": "muéstrame los post que tengáis sobre git",
+      "intent": "posts",
+      "entities": []
+    },
+    {
+      "text": "tenéis algún post sobre luis y botframework",
+      "intent": "posts",
+      "entities": []
+    },
+    {
+      "text": "quiero leer los post relacionados con iot",
+      "intent": "posts",
+      "entities": []
+    },
+    {
+      "text": "dame los post de node",
+      "intent": "posts",
+      "entities": []
+    },
+    {
+      "text": "pásame los post de javascript",
+      "intent": "posts",
+      "entities": []
+    },
+    {
+      "text": "podrías mostrarme los post que ha escrito ángel",
+      "intent": "posts",
+      "entities": []
+    },
+    {
+      "text": "quiero ver los post de francisco",
+      "intent": "posts",
+      "entities": []
+    },
+    {
+      "text": "quiero ver los post del año pasado",
+      "intent": "posts",
+      "entities": [
+        {
+          "entity": "DateTimeComposite",
+          "startPos": 24,
+          "endPos": 33
+        }
+      ]
+    },
+    {
+      "text": "podrías mostrarme los post de febrero del año pasado",
+      "intent": "posts",
+      "entities": [
+        {
+          "entity": "DateTimeComposite",
+          "startPos": 30,
+          "endPos": 51
+        }
+      ]
+    },
+    {
+      "text": "cuál es la web de gallardo",
+      "intent": "members",
+      "entities": []
+    },
+    {
+      "text": "quiero contactar con cristian",
+      "intent": "members",
+      "entities": []
+    },
+    {
+      "text": "cómo puedo contactar con fran",
+      "intent": "members",
+      "entities": []
+    },
+    {
+      "text": "me gustaría contactar con dani",
+      "intent": "members",
+      "entities": []
+    },
+    {
+      "text": "puedes darme el twitter de elena",
+      "intent": "members",
+      "entities": []
+    },
+    {
+      "text": "podrías facilitarme el email de kenny",
+      "intent": "members",
+      "entities": []
+    },
+    {
+      "text": "me gustaría tener más información de pedro",
+      "intent": "members",
+      "entities": []
+    },
+    {
+      "text": "puedes darme más información sobre luis, me gustaría contactarle",
+      "intent": "members",
+      "entities": []
+    },
+    {
+      "text": "dame la información de luis que tengas, me gustaría contactarle",
+      "intent": "members",
+      "entities": []
+    },
+    {
+      "text": "a qué hacéis en el equipo windows platform teams",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "exactamente qué es lo que hacéis",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "quienes estáis en el equipo",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "cómo funcionáis en el equipo",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "qué tecnologías usáis en el equipo",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "vuestro equipo pertenece a plainconcetps",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "quienes sois los miembros del equipo de windows platform teams",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "cómo puedo contactar con vuestro equipo",
+      "intent": "team",
+      "entities": []
+    },
+    {
+      "text": "cómo podría contactar con pedro o gallardo",
+      "intent": "members",
+      "entities": []
+    },
+    {
+      "text": "cómo podría contactar con edu",
+      "intent": "members",
+      "entities": []
+    }
+  ]
+}
