@@ -1,3 +1,7 @@
+![Header](images/first-vs-single.jpg)
+
+# First VS Single
+
 ¡Hola a todos! Linq se ha convertido en nuestro mejor amigo cuando trabajamos con colecciones de datos. Pese a la comodidad que nos ofrece, Linq no es solo azúcar sintáctico: es mucho más, pero ¿siempre usamos Linq correctamente?
 
 Hoy vamos a comparar `Single` y `First` para ver las diferencias y si los usamos correctamente.
@@ -110,5 +114,7 @@ Escribí este post para investigar y sopesar si era verdad que no estaba utiliza
 * [Código]( https://github.com/dotnet/corefx/tree/master/src/System.Linq/src/System/Linq) de Linq.
 
 * [Código]( https://github.com/dotnet/coreclr/blob/master/src/mscorlib/src/System/Collections/Generic/List.cs) de List.
+
+Free Vector Graphics by [Vecteezy.com](https://vecteezy.com)
 
 ¡Nos vemos en el futuro!
