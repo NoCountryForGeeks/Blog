@@ -82,7 +82,7 @@ Estos dos atributos sirven para ocultar variables públicas y para mostrar priva
 
 En nuestro ejemplo, la propiedad velocidad máxima es pública, y no queremos que se muestre en el inspector, ya que esta propiedad solo se modificará *in game*, cogiendo algún *power up*, por ejemplo. Solo tendríamos que poner encima de la propiedad la siguiente linea `[HideInInspector]`.
 
-Y en el caso de la propiedad privada de salud, que indica la salud actual del personaje, no quermos que se tenga acceso fuera de nuestro *Script*, pero quermos ir haciendo pruebas en el editor, subiendo y bajando la salud actual del personaje, pues solo necesitaríamos añadir `[SerializeField]` encima de la salud.
+Y en el caso de la propiedad privada de salud, que indica la salud actual del personaje, no queremos que se tenga acceso fuera de nuestro *Script*, pero queremos ir haciendo pruebas en el editor, subiendo y bajando la salud actual del personaje, pues solo necesitaríamos añadir `[SerializeField]` encima de la salud.
 
 ```csharp
 #region Public Fields
@@ -145,7 +145,7 @@ public class Player : MonoBehaviour
 
 ![Attributes](images/attributes06.jpg)
 
-Hasta aquí los atributos que más útiles me han sido hasta ahora. Hay muchos más, como vereis en el link anterior, podéis probar por vuestra cuenta y ver si os son útiles o no a la hora de vuestros desarrollos.
+Hasta aquí los atributos que más útiles me han sido hasta ahora. Hay muchos más, como veréis en el link anterior, podéis probar por vuestra cuenta y ver si os son útiles o no a la hora de vuestros desarrollos.
 
 Podéis bajar el código del ejemplo desde [GitHub](https://github.com/NoCountryForGeeks/Blog/tree/feature/atributosUnity/carlos/atributos-unity/content)
 
