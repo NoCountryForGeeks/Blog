@@ -151,5 +151,5 @@ Podéis bajar el código del ejemplo desde [GitHub](https://github.com/NoCountry
 
 ¡Hasta la Próxima!
 
-[@CarlosKlsOne](https://twitter.com/carlosklsone)
+@CarlosKlsOne
 [![Twitter Follow](https://img.shields.io/twitter/follow/carlosklsone.svg?style=social&label=Follow)](https://twitter.com/carlosklsone)
