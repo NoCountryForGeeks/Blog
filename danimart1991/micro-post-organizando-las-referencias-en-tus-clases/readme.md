@@ -23,6 +23,6 @@ Con **Visual Studio**, toda esta organización se puede hacer de una manera muy 
 
 De este modo hemos organizado todas nuestras referencias por clase de una manera muy cómoda y rápida.
 
-Algo que me gusta hacer cuando modifico una clase es presionar *Ctrl+R, Ctrl+G* (organizar referencias), *Ctrl+D, Ctrl+K* (dar formato al documento), y finalmente *Ctrl+S* para guardar el documento. Con esto quedaría todo nuestro código organizado y limpio de una manera muy rápida.
+Algo que me gusta hacer cuando modifico una clase es presionar *Ctrl+R, Ctrl+G* (organizar referencias), *Ctrl+K, Ctrl+D* (dar formato al documento), y finalmente *Ctrl+S* para guardar el documento. Con esto quedaría todo nuestro código organizado y limpio de una manera muy rápida.
 
 Nota: Dependiendo de la configuración de **Visual Studio**, es posible que el atajo de teclado para dar formato al documento sea *Ctrl+E, Ctrl+D*.
