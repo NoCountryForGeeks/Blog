@@ -1,10 +1,6 @@
-![Cover Page](./images/CoverPage.svg)
+Con la llegada del estándar **HTML5** ha resurgido el formato **SVG** en el desarrollo web. **HTML5** reconoce el formato **SVG** como un estándar, lo que ha obligado a los navegadores a soportarlo de manera nativa. 
 
-## Generando un sprite SVG en mi aplicacion React, performance y accesibilidad
-
-Con la llegada del estándar **HTML5** ha resurgido el formato **SVG** en el desarrollo web. **HTML5** reconoce el formato **SVG** como un estándar, lo que ha obligado a los navegadores a soportarlo de manera nativa.
-
-## ¿Que es SVG?
+## ¿Qué es SVG?
 
 SVG **(Scalable Vector Graphics)** es un formato vectorial que nos permite crear vectores escalables, esto nos permite agrandar y disminuir el tamaño de nuestras imágenes sin perder calidad. Una de las grandes ventajas de este formato es que tiene un tamaño reducido independientemente del tamaño de la imagen, este formato se exporta como XML.
 
@@ -14,7 +10,7 @@ SVG nos permite usar tres tipos de vectores gráficos
 *	Texto
 
 
-## Como usar un SVG en la web
+## Cómo usar un SVG en la web
 
 En la web podemos usar **SVG** escribiendo directamente en el **HTML** las etiques que representen las formas **(rect, cicle, line, polygon,  etc)** o podemos usar ficheros **.svg** exportados desde editores gráficos como **Illustrator, Inkscape o sketch.**
 
@@ -64,8 +60,8 @@ Las única manera que lo mantiene como un gráfico vectorial es la etiqueta ``<s
 
 ## Ventajas de usar SVG
 
-*	Podemos cambiar el color y el tamaño directamente con CSS incluso solo cambiar el color de partes específicas.
-*	Nos ahorraremos peso de imágenes a la hora de descargar
+*	Podemos cambiar el color y el tamaño directamente con CSS incluso solo cambiar el color de partes específicas
+*	Reducimos el peso de imágenes a la hora de descargar
 *	Podemos ahorrar peticiones al servidor si generamos un Sprite SVG
 *	No perderemos calidad
 
@@ -75,7 +71,7 @@ Un **sprite SVG** consiste en coger todos los **SVG** que contiene nuestra web y
 
 Para generar un **sprite SVG** podemos realizarlo a mano (es un trabajo tedioso y en el que podemos equivocarnos) o usar tareas **gulp, grunt o webpack** para crearlos, estas tareas nos permiten configurar los plugins con los cuales podemos eliminar cosas innecesarias de nuestros **SVG** y que ocuparían espacio innecesario en el **sprite**.
 
-![Sprite SVG](./images/SpriteSVGProcess.svg)
+![Sprite SVG](./images/SpriteSVGProcess.jpg)
 
 ## Generando un sprite SVG con Webpack en mi aplicación React
 
@@ -119,7 +115,7 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         open: true,
-  hot: true,
+        hot: true,
         stats: 'errors-only',
         overlay: {
             errors: true,
@@ -136,7 +132,7 @@ module.exports = {
 }
 ``` 
 
-Para poder generar nuestro **sprite SVG** vamos a necesitar un loader que se encargue de ello, yo en mi caso voy a usar **svg-sprite-loader** en el siguiente, [enlace](https://github.com/kisenka/svg-sprite-loader) podéis ver toda la documentación.
+Para poder generar nuestro **sprite SVG** vamos a necesitar un loader que se encargue de ello, yo en mi caso voy a usar **svg-sprite-loader** en el siguiente [enlace](https://github.com/kisenka/svg-sprite-loader) podéis ver toda la documentación.
 
 Para instalarlo: 
 
@@ -216,7 +212,7 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         open: true,
-hot: true,	
+        hot: true,	
         stats: 'errors-only',
         overlay: {
             errors: true,
@@ -398,7 +394,7 @@ Ahora que hemos conseguido mejorar un poco la carga de nuestra aplicación con e
 
 Para la etiqueta ``<img>`` existe el atributo ``alt``, este atributo permite a personas con discapacidad visual hacerse una idea de lo que representa esa imagen mediante un screen reader. Con los **SVG** tenemos que conseguir lo mismo, pero en este caso no existe un atributo ``alt``, para los **SVG** tenemos que añadir las etiquetas ``<title>`` y ``<desc>``.
 
-Lo primero que vamos ha hacer es añadir a nuestro componente **Icon** los roles ``role='img'`` y ``role='presentation'`` uno ira en la etiqueta ``<svg>`` y el otro en la etiqueta``<use>``. 
+Lo primero que vamos ha hacer es añadir a nuestro componente **Icon** los roles ``role='img'`` y ``role='presentation'`` uno irá en la etiqueta ``<svg>`` y el otro en la etiqueta``<use>``. 
 
 ```javascript
 import React, { Component } from 'react';
@@ -435,8 +431,8 @@ Cuando le añadimos el title y desc si ejecutamos el screen reader veremos como 
 
 ![Tooltip](./images/Tooltip.gif)
 
-También podemos hacer que cada uno de los vectores de nuestro svg reaccione a su propio ``<title>`` y ``<desc>`` esto nos puede venir bien en el ejemplo del mapa que tenemos, si hacemos los mismos pasos que antes y añadimos los títulos y descripciones a cada uno de los vectores que nos marque podemos hacer que reaccione de esta manera.
+También podemos hacer que cada uno de los vectores de nuestro svg reaccione a su propio ``<title>`` y ``<desc>`` esto nos puede venir bien en el ejemplo del mapa que tenemos. Si hacemos los mismos pasos que antes y añadimos los títulos y descripciones a cada uno de los vectores que nos marque podemos hacer que reaccione de esta manera.
 
-![Multi tooltip](./images/Multitooltip.gif) 
+![Multi tooltip](./images/MultiTooltip.gif) 
 
 De esta manera conseguiremos darle un poco mas de accesibilidad a nuestra web y así ayudar a que personas con discapacidad visual puedan usar nuestra web sin problemas ya que son los más olvidados.
