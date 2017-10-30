@@ -351,7 +351,7 @@ Ahora que ya tenemos nuestro **sprite SVG** funcionando podemos estilarlo y dar 
 }
 ```
 
-![Icons fill](./images/IconsFill.jpg)
+![Icons fill](./images/FillIcons.jpg)
 
 ## Comparando carga de una aplicacion, sprite VS no sprite
 
