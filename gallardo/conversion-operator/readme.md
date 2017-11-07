@@ -264,4 +264,6 @@ Como hemos visto los operadores de conversión son muy potentes y nos van a ayud
 * Palabra reservada [explicit](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/explicit).
 * Palabra reservada [implicit](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/implicit).
 
+<a href="https://www.freepik.com/free-photos-vectors/"> vector created by Freepik</a>
+
 Un saludo y nos vemos en el futuro.
