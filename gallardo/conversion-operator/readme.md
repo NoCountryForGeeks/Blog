@@ -1,3 +1,5 @@
+![Header](images/header.jpg)
+
 # Operadores de conversión en C# #
 
 ¡Hola a todos! *No Country for Geeks* es un grupo de personas a las que les gusta aprender cosas nuevas y compartirlas. Hoy vengo a hablar de algo nuevo que he aprendido ~~esta semana~~ este año: operadores de conversión.
@@ -264,6 +266,6 @@ Como hemos visto los operadores de conversión son muy potentes y nos van a ayud
 * Palabra reservada [explicit](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/explicit).
 * Palabra reservada [implicit](https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/implicit).
 
-[Vector created by Freepik](https://www.freepik.com/free-photos-vectors/")
+[Designed by Freepik](https://www.freepik.com/free-vector/industrial-machine-vector_753558.htm)
 
 Un saludo y nos vemos en el futuro.
