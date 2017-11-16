@@ -1,4 +1,4 @@
-# Rambling Javascript #4: Arrays
+# Rambling Javascript #3: Arrays
 
 "Tu código es tan bueno como el valor con el que te entregas a él."
 
@@ -59,7 +59,7 @@ function callback (element, index, array) {
 
 No se suelen usar los parámetros de índice y _array_, pero si quisiéramos que la condición también dependiera del índice del elemento podríamos usar ese parámetro. Igual sucede con el propio _array_.
 
-__Nota__: Tener presente esta estructura de _callback_ ya que los parámetros ```index``` y ```àrray``` aplican también al resto de método que veremos.
+__Nota__: Tener presente esta estructura de _callback_ ya que los parámetros ```index``` y ```array``` aplican también al resto de método que veremos.
 
 Para una mayor legibilidad de las funciones podemos definir la función dentro de la propia llamada y, después de esto, hacer uso de las [Fat Array Functions](http://www.nocountryforgeeks.com/rambling-javascript-2-fat-arrow-functions/) que ya vimos en uno de nuestros anteriores post explicados por [Francisco Olmedo](http://www.nocountryforgeeks.com/author/franmolmedo/). Así el código anterior podría quedar de la siguiente manera:
 
