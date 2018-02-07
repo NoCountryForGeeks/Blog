@@ -2,13 +2,13 @@ En **React** para reutilizar o compartir lógica entre componentes podemos usar 
 
 # ¿Que es un HOC?
 
-Un **HOC (High Order Component)** o traducido **Componente de Order Superior** es un patrón que nos es parte del **API** de **React**. Este patrón consiste en una **función** que recibe un **componente** y retorna un nuevo **componente** transformado.
+Un **HOC (High Order Component)** o traducido **Componente de Order Superior** es un patrón que no es parte del **API** de **React**. Este patrón consiste en una **función** que recibe un **componente** y retorna un nuevo **componente** transformado.
 
 Este patrón lo usan librerías como **Redux** con el **connect()** o **Apollo** con **graphql()**
 
 # ¿Que es Render Props?
 
-Este patrón consiste en un **componente** que recibe una **función render** la cual será el **render** que ejecutará el **componente**.
+Este patrón consiste en un **componente** que recibe una **función render** vía **props** la cual será el **render** que ejecutará el **componente**.
 
 Este patrón lo usan librerías como **react-router** o **react-motion**.
 
@@ -18,10 +18,13 @@ Los **HOC** sustituyen a los **mixins** que podemos pasarle a un componente **Re
 
 - No nos protegen de colisiones entre nombres de **props**, de esta manera no sabemos que **HOC** nos da ese valor
 - Los HOC nos restringe la composición ya que va a ser una composición estática
+- Los HOC se evalúan en tiempo de compilación.
+
+⚠️ **El siguiente ejemplo podría resolverse de una manera distinta y mas común. !Solo de trata de un ejemplo!**
 
 # HOC example
 
-En esre caso vamos a realizar un ejemplo de un input en el cual, al escribir nos mostrará el mensaje en pantalla.
+En este caso vamos a realizar un ejemplo de un input en el cual, al escribir nos mostrará el mensaje en pantalla.
 
 ![Input example](./images/classComponent.gif)
 
@@ -37,16 +40,17 @@ class WriteMessage extends React.Component {
         };
     }
 
-    updateValue(event) {
+    updateValue({ target: {value} }) {
         this.setState({ message: event.target.value })
     }
     
     render() {
+        const { message } = this.state;
         return(
             <div>
-                <input type='text' value={ this.state.message } onChange={ event => this.updateValue(event) } />
+                <input type='text' value={ message } onChange={ event => this.updateValue(event) } />
                 <div>
-                    <span>{ this.state.message }</span>
+                    <span>{ message }</span>
                 </div>
             </div>
         )
@@ -71,16 +75,17 @@ const WriteMessage = Message =>
             };
         }
     
-        updateValue(event) {
+        updateValue({ target: {value} }) {
             this.setState({ message: event.target.value })
         }
 
         render() {
+            const { message } = this.state;
             return(
                 <div>
-                    <input type='text' value={ this.state.message } onChange={ event => this.updateValue(event) } />
+                    <input type='text' value={ message } onChange={ event => this.updateValue(event) } />
                     <div>
-                        <Message message={ this.state.message } />
+                        <Message message={ message } />
                     </div>
                 </div>
                 
@@ -116,16 +121,17 @@ const WriteMessage = Message =>
             };
         }
     
-        updateValue(event) {
+        updateValue({ target: {value} }) {
             this.setState({ message: event.target.value })
         }
 
         render() {
+            const { message } = this.state;
             return(
                 <div>
-                    <input type='text' value={ this.state.message } onChange={ event => this.updateValue(event) } />
+                    <input type='text' value={ message } onChange={ event => this.updateValue(event) } />
                     <div>
-                        <Message message={ this.state.message } />
+                        <Message message={ message } />
                     </div>
                 </div>
                 
@@ -177,16 +183,17 @@ const WriteMessage = Message =>
             };
         }
     
-        updateValue(event) {
+        updateValue({ target: {value} }) {
             this.setState({ message: event.target.value })
         }
 
         render() {
+            const { message } = this.state;
             return(
                 <div>
-                    <input type='text' value={ this.state.message } onChange={ event => this.updateValue(event) } />
+                    <input type='text' value={ message } onChange={ event => this.updateValue(event) } />
                     <div>
-                        <Message message={ this.state.message } />
+                        <Message message={ message } />
                     </div>
                 </div>
                 
@@ -209,7 +216,8 @@ const WithCustomMessage = Component =>
 
 class Message extends React.Component {
     render() {
-        return <span>{ this.props.custom } { this.props.message }</span>
+        const { message, custom } = this.props;
+        return <span>{ custom } { message }</span>
     }
 }
     
@@ -243,7 +251,7 @@ class WriteMessage extends React.Component {
         };
     }
 
-    updateValue(event) {
+    updateValue({ target: {value} }) {
         this.setState({ message: event.target.value })
     }
 
@@ -283,7 +291,7 @@ class WriteMessage extends React.Component {
         };
     }
 
-    updateValue(event) {
+    updateValue({ target: {value} }) {
         this.setState({ message: event.target.value })
     }
 
@@ -314,10 +322,13 @@ ReactDOM.render(
 
 De esta manera tendíramos el mismo funcionamiento. 
 
-Usando **Render Props** esvitamos la coisión de **props** que teniamos usando los **HOC** y nuestras **composiciones** ahora son **dinamicas**.
+Usando **Render Props** esvitamos la coisión de **props** que teniamos usando los **HOC** y nuestras **composiciones** ahora son **dinamicas**, todo sucede en el **render** por lo cual podremos aprovechar el ciclo de vida de **React** y el flujo natural de **prop** y **state**.
 
 
 # Conclusión
+
+Con el uso de este **patrón** se puede reemplazar cualquier **HOC** por un componente con **Render props** pero no todos los componentes con **Render props** se pueden hacer con un **HOC**.
+
 
 ![Conclusion tweet](./images/tweet.jpg)
 
