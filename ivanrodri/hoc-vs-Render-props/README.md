@@ -2,7 +2,7 @@ En **React** para reutilizar o compartir lógica entre componentes podemos usar 
 
 # ¿Que es un HOC?
 
-Un **HOC (High Order Component)** o traducido **Componente de Order Superior** es un patrón que no es parte del **API** de **React**. Este patrón consiste en una **función** que recibe un **componente** y retorna un nuevo **componente** transformado.
+Un **HOC (High Order Component)** o traducido **Componente de Order Superior** es un patrón que no es parte del **API** de **React**. Este patrón consiste en una **función** que recibe un **componente** y retorna un nuevo **componente** transformado. También existen los **HOC** de **reducers**, en definitiva un **HOC** es una **función** que retorna otra **función**.
 
 Este patrón lo usan librerías como **Redux** con el **connect()** o **Apollo** con **graphql()**
 
@@ -13,8 +13,6 @@ Este patrón consiste en un **componente** que recibe una **función render** v�
 Este patrón lo usan librerías como **react-router** o **react-motion**.
 
 # Desventajas de usar HOC
-
-Los **HOC** sustituyen a los **mixins** que podemos pasarle a un componente **React** cuando lo hacemos con **React.ceateClass** pero con **ES6** creamos **componente** con **clases** y estas **clases** no nos permiten utilizar **mixins** por eso se adoptó este patrón.
 
 - No nos protegen de colisiones entre nombres de **props**, de esta manera no sabemos que **HOC** nos da ese valor
 - Los HOC nos restringe la composición ya que va a ser una composición estática
