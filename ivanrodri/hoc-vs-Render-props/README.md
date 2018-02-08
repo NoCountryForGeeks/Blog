@@ -18,7 +18,7 @@ Este patrón lo usan librerías como **react-router** o **react-motion**.
 - Los HOC nos restringe la composición ya que va a ser una composición estática
 - Los HOC se evalúan en tiempo de compilación.
 
-⚠️ **El siguiente ejemplo podría resolverse de una manera distinta y mas común. !Solo de trata de un ejemplo!**
+⚠️ **El siguiente ejemplo podría resolverse de una manera distinta y mas común. !Sólo de trata de un ejemplo!**
 
 # HOC example
 
