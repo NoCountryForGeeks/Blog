@@ -2,20 +2,21 @@ En **React** para reutilizar o compartir lógica entre componentes podemos usar 
 
 # ¿Que es un HOC?
 
-Un **HOC (High Order Component)** o traducido **Componente de Order Superior** es un patrón que no es parte del **API** de **React**. Este patrón consiste en una **función** que recibe un **componente** y retorna un nuevo **componente** transformado. También existen los **HOC** de **reducers**, en definitiva un **HOC** es una **función** que retorna otra **función**.
+Un **HOC (High Order Component)** o traducido **Componente de Order Superior** es un patrón que no es parte del **API** de **React**, si no que llega por parte de la **programación funcional**. Este patrón consiste en una **función** que recibe una o mas **funciones** como argumento y devuelven una nueva **funcion** o **componente**, también existen los **HOC** de **reducers**, en definitiva un **HOC** es una **función** que retorna otra **función**.
+
 
 Este patrón lo usan librerías como **Redux** con el **connect()** o **Apollo** con **graphql()**
 
 # ¿Que es Render Props?
 
-Este patrón consiste en un **componente** que recibe una **función render** vía **props** la cual será el **render** que ejecutará el **componente**.
+Es un patrón que nos permite compartir código teniendo un **componente** el cual recibe una  **función render** vía **props** la cual será el **render** que ejecutará el **componente**.
 
 Este patrón lo usan librerías como **react-router** o **react-motion**.
 
 # Desventajas de usar HOC
 
 - No nos protegen de colisiones entre nombres de **props**, de esta manera no sabemos que **HOC** nos da ese valor
-- Los HOC nos restringe la composición ya que va a ser una composición estática
+- Los HOC nos restringen la composición ya que va a ser una composición estática
 - Los HOC se evalúan en tiempo de compilación.
 
 ⚠️ **El siguiente ejemplo podría resolverse de una manera distinta y mas común. !Sólo de trata de un ejemplo!**
@@ -320,7 +321,7 @@ ReactDOM.render(
 
 De esta manera tendíramos el mismo funcionamiento. 
 
-Usando **Render Props** esvitamos la coisión de **props** que teniamos usando los **HOC** y nuestras **composiciones** ahora son **dinamicas**, todo sucede en el **render** por lo cual podremos aprovechar el ciclo de vida de **React** y el flujo natural de **prop** y **state**.
+Usando **Render Props** evitamos la coisión de **props** que teniamos usando los **HOC** y nuestras **composiciones** ahora son **dinamicas**, todo sucede en el **render** por lo cual podremos aprovechar el ciclo de vida de **React** y el flujo natural de **prop** y **state**.
 
 
 # Conclusión
