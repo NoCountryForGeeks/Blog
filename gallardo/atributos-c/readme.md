@@ -130,7 +130,7 @@ public static string GetDisplayName(this Enum enumValue)
 }
 ```
 
-Ahora podemos utilizar el método `GetDisplayName` para obtener el `DisplayName de un enumerado.
+Ahora podemos utilizar el método `GetDisplayName` para obtener el `DisplayName` de un enumerado.
 
 ```csharp
 Fruit.BloodOrange.GetDisplayName();
