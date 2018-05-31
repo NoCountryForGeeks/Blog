@@ -1,6 +1,6 @@
 # La Sinergia del Equipo
 
-> "La belleza de un movimiento de ajedrez no se refleja en su apariencia, sino en el pensamiento que hay detrás de él." Tarrasch
+> "La belleza de un movimiento de ajedrez no se refleja en su apariencia, sino en el pensamiento que hay detrás de él." [Tarrasch](https://es.wikipedia.org/wiki/Siegbert_Tarrasch)
 
 "A los usuarios finales les da igual que usemos o no DDD, ellos eso no lo ven". Creo que esta frase puede ser escuchada en cualquier equipo de desarrollo de software. Es una creencia muy común, y bajo mi punto de vista errónea, que los usuarios finales no sean conscientes que usemos o no ciertos patrones/diseños que den calidad a nuestro código. Es verdad que no van a conocer el término DDD y les va a importar poco lo que quieran decir sus siglas; pero ellos sí van a percibir si el producto software que están usando ha sido desarrollado con calidad o se ha sacado una versión rápida por presiones de tiempo o cualquier otro impedimento.
 
