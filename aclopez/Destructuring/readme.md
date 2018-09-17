@@ -79,7 +79,7 @@ Cuando recuperamos datos de una función solemos recuperar un objeto con propied
 ```javascript
 
 function getPerson() {
-    return const person = {
+    return {
         name: 'Pepe',
         age: 26,
         hobbies: ['chess', 'running', 'basket']
@@ -95,3 +95,85 @@ console.log(name); // result => Pepe.
 Como se puede ver podemos cazar al vuelo las propiedades devueltas por una función. Esto hace que el código sea mucho más limpio y que podamos atacar a las propiedades que de verdad nos interesan de los objetos que nos devuelven las funciones. Como podéis observar no he destructurado ni ```age``` ni ```hobbies``` ya que son propiedades con las que no voy a trabajar.
 
 ### Parámetros en las funciones
+
+Muchas veces no usamos todos los parámetros de nuestras funciones y solo necesitamos un par de propiedades. En estos casos _destructuring_ también nos puede ayudar a dejar un código más claro. Pongamos una función _filter_ para poder filtrar las personas que tenemos en un _array_. Esta función _filter_ recibe un objeto con las opciones de filtrado de nombre y edad. 
+
+```javascript
+
+const people = [
+    {
+        name: 'Pepe',
+        age: 26,
+        hobbies: ['chess', 'running', 'basket']
+    },
+    {
+        name: 'Juan',
+        age: 32,
+        hobbies: [ 'basket' ]
+    },
+    {
+        name: 'Paco',
+        age: 45,
+        hobbies: ['running']
+    }
+]
+
+function getPeople(filter) {
+    return people.map(person => person.name === filter.name || person.age > filter.minAge);
+}
+
+const peopleFiltered = getPeople({ name: undefined, age: 40 });
+
+console.log(peopleFiltered); 
+// result => [
+//    {
+//        name: 'Paco',
+//        age: 45,
+//        hobbies: ['running']
+//    }
+// ]
+
+```
+
+Esta función queda más limpia aplicando el _destructuring_ en los parámetros de la misma:
+
+```javascript
+
+const people = [
+    {
+        name: 'Pepe',
+        age: 26,
+        hobbies: ['chess', 'running', 'basket']
+    },
+    {
+        name: 'Juan',
+        age: 32,
+        hobbies: [ 'basket' ]
+    },
+    {
+        name: 'Paco',
+        age: 45,
+        hobbies: ['running']
+    }
+]
+
+function getPeople({ name, minAge }) {
+    return people.map(person => person.name === name || person.age > minAge);
+}
+
+const peopleFiltered = getPeople({ name: undefined, age: 40 });
+
+console.log(peopleFiltered); 
+// result => [
+//    {
+//        name: 'Paco',
+//        age: 45,
+//        hobbies: ['running']
+//    }
+// ]
+
+```
+
+### Funciones de trabajo con _arrays_
+
+También es interesante en usar destructuring en las funciones de los _arrays_. Podéis verlas [en nuestro post de arrays](http://www.nocountryforgeeks.com/rambling-javascript-3-arrays/). En estas _arrows functions_
