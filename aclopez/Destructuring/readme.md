@@ -122,9 +122,9 @@ function getPeople(filter) {
     return people.map(person => person.name === filter.name || person.age > filter.minAge);
 }
 
-const peopleFiltered = getPeople({ name: undefined, age: 40 });
+const peopleBiggerThan40 = getPeople({ name: undefined, age: 40 });
 
-console.log(peopleFiltered); 
+console.log(peopleBiggerThan40); 
 // result => [
 //    {
 //        name: 'Paco',
@@ -161,9 +161,9 @@ function getPeople({ name, minAge }) {
     return people.map(person => person.name === name || person.age > minAge);
 }
 
-const peopleFiltered = getPeople({ name: undefined, age: 40 });
+const peopleBiggerThan40 = getPeople({ name: undefined, age: 40 });
 
-console.log(peopleFiltered); 
+console.log(peopleBiggerThan40); 
 // result => [
 //    {
 //        name: 'Paco',
@@ -176,4 +176,99 @@ console.log(peopleFiltered);
 
 ### Funciones de trabajo con _arrays_
 
-También es interesante en usar destructuring en las funciones de los _arrays_. Podéis verlas [en nuestro post de arrays](http://www.nocountryforgeeks.com/rambling-javascript-3-arrays/). En estas _arrows functions_
+También es interesante en usar destructuring en las funciones para trabajar con _arrays_. Podéis verlas [en nuestro post de arrays](http://www.nocountryforgeeks.com/rambling-javascript-3-arrays/). En estas funciones la combinación de _arrows functions_ con el _destructuring_ suele generar un código muy legible:
+
+Por ejemplo la función anterior podría quedar reducida a:
+
+```javascript
+
+const people = [
+    {
+        name: 'Pepe',
+        age: 26,
+        hobbies: ['chess', 'running', 'basket']
+    },
+    {
+        name: 'Juan',
+        age: 32,
+        hobbies: [ 'basket' ]
+    },
+    {
+        name: 'Paco',
+        age: 45,
+        hobbies: ['running']
+    }
+]
+
+function getPeople({ name, minAge }) {
+    return people.map({ name: personName, age: personAge } => personName === name || personAge > minAge);
+}
+
+const peopleBiggerThan40 = getPeople({ name: undefined, age: 40 });
+
+console.log(peopleFiltered); 
+// result => [
+//    {
+//        name: 'Paco',
+//        age: 45,
+//        hobbies: ['running']
+//    }
+// ]
+
+```
+
+Hemos destructurado el objeto _person_ dentro de la _arrow function_ del _map_. Así todo queda mucho más conciso y claro y no hace falta usar _person._ para poder acceder a las propiedades de _person_.
+
+## Destructuring múltiple
+
+Podemos llevar el _destructuring_ de objetos hasta su máxima expresión, es decir, podemos hacer _destructuring_ dentro de nuestro propio _destructuring_ hecho.
+
+```javascript
+
+const people = [
+    {
+        names: {
+            name: 'Pepe',
+            surname: 'Gonzalez'
+        },
+        age: 26,
+        hobbies: ['chess', 'running', 'basket']
+    },
+    {
+        names: {
+            name: 'Pepe',
+            surname: 'Gonzalez'
+        },
+        age: 32,
+        hobbies: [ 'basket' ]
+    },
+    {
+        names: {
+            name: 'Pepe',
+            surname: 'Gonzalez'
+        },
+        age: 45,
+        hobbies: ['running']
+    }
+]
+
+function getPeople({ name, minAge }) {
+    return people.map({ ({ name: personName }), age: personAge } => personName === name || personAge > minAge);
+}
+
+const peopleBiggerThan40 = getPeople({ name: undefined, age: 40 });
+
+console.log(peopleFiltered); 
+// result => [
+//    {
+//        name: 'Paco',
+//        age: 45,
+//        hobbies: ['running']
+//    }
+// ]
+
+```
+
+Esta vez el parámetro _name_ ha sido cogido por una doble destructuración. Podemos tener todas las _destructuring_ que tengamos siempre que no lo mezclemos con el _destructuring de arrays_, ya que no serían compatibles uno con otro.
+
+## Destructuring en React
