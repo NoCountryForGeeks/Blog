@@ -2,7 +2,7 @@
 
 > "Todo es muy difícil antes de ser sencillo" Thomas Fuller
 
-La programación funcional viene de camino. Ya hemos hablado de ello en post como [La energía del código](https://geeks.ms/windowsplatform/2017/05/10/la-energia-del-codigo/) y el __destructuring__ de Javascript es una de las nuevas características de ES6 que recuerda mucho al [Pattern matching de Haskell](http://learnyouahaskell.com/syntax-in-functions). Programación funcional o no, lo que está claro es que esta nueva opción del lenguaje nos permite escribir código mucho más limpio y claro, y es nuestra obligación hacer uso del _destructuring_ siempre que nos permita dejar un código con más energía.
+Hay una nueva programación que viene de camino. Una programación que da prioridad a una lectura fácil sacrificando un poco de dificultad a la hora de escribir el código. Ya hemos hablado de ello en posts como [La energía del código](https://geeks.ms/windowsplatform/2017/05/10/la-energia-del-codigo/) y el __destructuring__ de Javascript es una de las nuevas características de ES6 que sigue esa tendencia. Recuerda mucho al [Pattern matching de Haskell](http://learnyouahaskell.com/syntax-in-functions); pero programación funcional o no, lo que está claro es que esta nueva opción del lenguaje nos permite escribir código mucho más limpio y claro, y es nuestra obligación hacer uso del _destructuring_ siempre que nos permita dejar un código con más energía.
 
 ## Definición
 
@@ -70,6 +70,7 @@ Después de a ver visto la sintaxis del _destructuring_ seguro que os queda la d
 * Parámetros en las funciones
 * Funciones de trabajo con _arrays_
 * Destructuring múltiple
+* Importación de objetos
 * Destructuring en React
 
 ### Retornos de funciones.
@@ -206,7 +207,7 @@ function getPeople({ name, minAge }) {
 
 const peopleBiggerThan40 = getPeople({ name: undefined, age: 40 });
 
-console.log(peopleFiltered); 
+console.log(peopleBiggerThan40); 
 // result => [
 //    {
 //        name: 'Paco',
@@ -219,7 +220,7 @@ console.log(peopleFiltered);
 
 Hemos destructurado el objeto _person_ dentro de la _arrow function_ del _map_. Así todo queda mucho más conciso y claro y no hace falta usar _person._ para poder acceder a las propiedades de _person_.
 
-## Destructuring múltiple
+### Destructuring múltiple
 
 Podemos llevar el _destructuring_ de objetos hasta su máxima expresión, es decir, podemos hacer _destructuring_ dentro de nuestro propio _destructuring_ hecho.
 
@@ -258,7 +259,7 @@ function getPeople({ name, minAge }) {
 
 const peopleBiggerThan40 = getPeople({ name: undefined, age: 40 });
 
-console.log(peopleFiltered); 
+console.log(peopleBiggerThan40); 
 // result => [
 //    {
 //        name: 'Paco',
@@ -271,4 +272,73 @@ console.log(peopleFiltered);
 
 Esta vez el parámetro _name_ ha sido cogido por una doble destructuración. Podemos tener todas las _destructuring_ que tengamos siempre que no lo mezclemos con el _destructuring de arrays_, ya que no serían compatibles uno con otro.
 
-## Destructuring en React
+En cambio, si realizamos el _destructuring_ solo de _arrays_ también lo podemos realizar de manera múltiple:
+
+```javascript
+
+const [first, [[second], third]] = ['apple', [['banana'], 'orange']];
+
+console.log(first);
+// apple
+console.log(second);
+// banana
+console.log(third);
+// orange
+
+```
+
+Este _array_ de _arrays_ ha sido destructurado. Si lo analizamos el elemento _'apple'_ ha sido destructurado de una manera simple. En cambio _'banana'_ está dentro de un _array_ que a la vez está dentro de un _array_ y hemos podido hacer el _destructuring_ múltiple sin ningún problema. _'orange'_ finalmente es un elemento dentro de un _array_ por lo que su nivel de destructuración ha sido de 2.
+
+### Destructuring en React
+
+_Destructuring_ es una técnica usada mucho en los componentes React ya que les da mucha más legibilidad. Las _props_ suelen ser un blanco fácil para poder realizar el _destructuring_ siempre que se use más de una.
+
+Si comparados dos códigos con o sin _destructuring_ podemos ver la diferencia entre ellos.
+
+Sin _destructuring_:
+
+```
+
+import React from 'react';
+
+import { SearchPanel } from './MasterPage/SearchPanel.js';
+import { SearchResult } from './MasterPage/SearchResults.js';
+
+import { root } from './masterPage.scss';
+
+const MasterPage = (props) => (
+	<main className={root}>
+		<SearchPanel search={props.search} />
+		<SearchResult results={props.results} isLoading={props.isLoading} />
+	</main>
+);
+
+export { MasterPage };
+
+```
+
+Con _destructuring_:
+
+```
+
+import React from 'react';
+
+import { SearchPanel } from './MasterPage/SearchPanel.js';
+import { SearchResult } from './MasterPage/SearchResults.js';
+
+import { root } from './masterPage.scss';
+
+const MasterPage = ({ search, results, isLoading }) => (
+	<main className={root}>
+		<SearchPanel search={search} />
+		<SearchResult results={results} isLoading={isLoading} />
+	</main>
+);
+
+export { MasterPage };
+
+```
+
+## Conclusiones
+
+_Destructuring_ es una nueva característica muy potente del lenguaje que nos permite escribir código más legible, aunque como todo no hay que abusar de ella. Esto han sido pequeños ejemplos, pero seguramente si lo que vas a destructurar solamente tiene una propiedad, seguramente la mejor opción no sea usarlo. _Destructuring_ coge mucha fuerza sobre todo cuando se usan varias propiedades de un mismo objeto que se pueden destructurar, ya que al hacer el desglose de las propiedades todo suele quedar más limpio y claro.
