@@ -6,7 +6,7 @@ Hay una nueva programación que viene de camino. Una programación que da priori
 
 ## Definición
 
-_Destructuring_, o destructuración en un lenguaje más hispanizado, es una nueva expresión de ES6 para Javascript que nos da la posibilidad de poder coger los datos de objetos o _arrays_ directamente y de manera múltiple, extrayéndolos directamente de los mismos.
+_Destructuring_, o destructuración en un lenguaje más hispanizado, es una nueva característica de ES6 para Javascript que nos da la posibilidad de poder coger los datos de objetos o _arrays_ directamente y de manera múltiple, para extraerlos a variables o constantes.
 
 ## Sintaxis
 
@@ -64,7 +64,7 @@ console.log(secondHobbie); // result => running
 
 ## Uso Práctico
 
-Después de a ver visto la sintaxis del _destructuring_ seguro que os queda la duda de: ¿donde podría aplicar yo esto para que mi código fuese más limpio y legible? La destructuración se puede hacer en muchos sitios, pero los más beneficiosos suelen ser:
+Después de haber visto la sintaxis del _destructuring_ seguro que os queda la duda de: ¿dónde podría aplicar yo esto para que mi código fuese más limpio y legible? La destructuración se puede hacer en muchos sitios, pero los más beneficiosos suelen ser:
 
 * Retornos de funciones
 * Parámetros en las funciones
@@ -120,10 +120,10 @@ const people = [
 ]
 
 function getPeople(filter) {
-    return people.map(person => person.name === filter.name || person.age > filter.minAge);
+    return people.map(person => (nameFilter || personName === name) && (personAge || personAge > minAge));
 }
 
-const peopleBiggerThan40 = getPeople({ name: undefined, age: 40 });
+const peopleBiggerThan40 = getPeople({ age: 40 });
 
 console.log(peopleBiggerThan40); 
 // result => [
@@ -159,10 +159,10 @@ const people = [
 ]
 
 function getPeople({ name, minAge }) {
-    return people.map(person => person.name === name || person.age > minAge);
+    return people.map(person => (nameFilter || personName === name) && (personAge || personAge > minAge));
 }
 
-const peopleBiggerThan40 = getPeople({ name: undefined, age: 40 });
+const peopleBiggerThan40 = getPeople({ age: 40 });
 
 console.log(peopleBiggerThan40); 
 // result => [
@@ -175,9 +175,53 @@ console.log(peopleBiggerThan40);
 
 ```
 
+También podemos añadir a los parámetros destructurados valores por defecto si nos interesase:
+
+```javascript
+
+const people = [
+    {
+        name: 'Pepe',
+        age: 26,
+        hobbies: ['chess', 'running', 'basket']
+    },
+    {
+        name: 'Juan',
+        age: 32,
+        hobbies: [ 'basket' ]
+    },
+    {
+        name: 'Paco',
+        age: 45,
+        hobbies: ['running']
+    }
+]
+
+function getPeople({ name, minAge = 30 }) {
+    return people.map(person => (nameFilter || personName === name) && (personAge || personAge > minAge));
+}
+
+const peopleBiggerThan40 = getPeople({});
+
+console.log(peopleBiggerThan40); 
+// result => [
+//    {
+//        name: 'Juan',
+//        age: 32,
+//        hobbies: [ 'basket' ]
+//    },
+//    {
+//        name: 'Paco',
+//        age: 45,
+//        hobbies: ['running']
+//    }
+// ]
+
+```
+
 ### Funciones de trabajo con _arrays_
 
-También es interesante en usar destructuring en las funciones para trabajar con _arrays_. Podéis verlas [en nuestro post de arrays](http://www.nocountryforgeeks.com/rambling-javascript-3-arrays/). En estas funciones la combinación de _arrows functions_ con el _destructuring_ suele generar un código muy legible:
+También es interesante usar _destructuring_ en las funciones para trabajar con _arrays_. Podéis verlas [en nuestro post de arrays](http://www.nocountryforgeeks.com/rambling-javascript-3-arrays/). En estas funciones la combinación de _arrows functions_ con el _destructuring_ suele generar un código muy legible:
 
 Por ejemplo la función anterior podría quedar reducida a:
 
@@ -202,10 +246,10 @@ const people = [
 ]
 
 function getPeople({ name, minAge }) {
-    return people.map({ name: personName, age: personAge } => personName === name || personAge > minAge);
+    return people.map({ name: personName, age: personAge } => (nameFilter || personName === name) && (personAge || personAge > minAge));
 }
 
-const peopleBiggerThan40 = getPeople({ name: undefined, age: 40 });
+const peopleBiggerThan40 = getPeople({ age: 40 });
 
 console.log(peopleBiggerThan40); 
 // result => [
@@ -253,11 +297,11 @@ const people = [
     }
 ]
 
-function getPeople({ name, minAge }) {
-    return people.map({ ({ name: personName }), age: personAge } => personName === name || personAge > minAge);
+function getPeople({ nameFilter, minAge }) {
+    return people.map({ ({ name: personName }), age: personAge } => (nameFilter || personName === name) && (personAge || personAge > minAge));
 }
 
-const peopleBiggerThan40 = getPeople({ name: undefined, age: 40 });
+const peopleBiggerThan40 = getPeople({ age: 40 });
 
 console.log(peopleBiggerThan40); 
 // result => [
@@ -341,4 +385,4 @@ export { MasterPage };
 
 ## Conclusiones
 
-_Destructuring_ es una nueva característica muy potente del lenguaje que nos permite escribir código más legible, aunque como todo no hay que abusar de ella. Esto han sido pequeños ejemplos, pero seguramente si lo que vas a destructurar solamente tiene una propiedad, seguramente la mejor opción no sea usarlo. _Destructuring_ coge mucha fuerza sobre todo cuando se usan varias propiedades de un mismo objeto que se pueden destructurar, ya que al hacer el desglose de las propiedades todo suele quedar más limpio y claro.
+_Destructuring_ es una nueva característica muy potente del lenguaje que nos permite escribir código más legible, aunque como todo no hay que abusar de ella. Esto han sido pequeños ejemplos, pero seguramente si lo que vas a destructurar solamente tiene una propiedad, la mejor opción no sea usarlo. _Destructuring_ coge mucha fuerza sobre todo cuando se usan varias propiedades de un mismo objeto que se pueden destructurar, ya que al hacer el desglose de las propiedades todo suele quedar más limpio y claro.
