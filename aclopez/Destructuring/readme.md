@@ -120,10 +120,11 @@ const people = [
 ]
 
 function getPeople(filter) {
-    return people.map(person => (nameFilter || personName === name) && (personAge || personAge > minAge));
+    return people.filter(person => (!filter.nameFilter || person.name === filter.nameFilter) && 
+                                   (!filter.minAge || person.age > filter.minAge));
 }
 
-const peopleBiggerThan40 = getPeople({ age: 40 });
+const peopleBiggerThan40 = getPeople({ minAge: 40 });
 
 console.log(peopleBiggerThan40); 
 // result => [
@@ -158,11 +159,12 @@ const people = [
     }
 ]
 
-function getPeople({ name, minAge }) {
-    return people.map(person => (nameFilter || personName === name) && (personAge || personAge > minAge));
+function getPeople({ nameFilter, minAge }) {
+    return people.filter(person => (!nameFilter || person.name === nameFilter) && 
+                                   (!minAge || person.age > minAge));
 }
 
-const peopleBiggerThan40 = getPeople({ age: 40 });
+const peopleBiggerThan40 = getPeople({ minAge: 40 });
 
 console.log(peopleBiggerThan40); 
 // result => [
@@ -197,8 +199,9 @@ const people = [
     }
 ]
 
-function getPeople({ name, minAge = 30 }) {
-    return people.map(person => (nameFilter || personName === name) && (personAge || personAge > minAge));
+function getPeople({ nameFilter, minAge = 30 }) {
+    return people.filter(person => (!nameFilter || person.name === nameFilter) && 
+                                   (!personAge || person.age > minAge));
 }
 
 const peopleBiggerThan40 = getPeople({});
@@ -245,11 +248,12 @@ const people = [
     }
 ]
 
-function getPeople({ name, minAge }) {
-    return people.map({ name: personName, age: personAge } => (nameFilter || personName === name) && (personAge || personAge > minAge));
+function getPeople({ nameFilter, minAge }) {
+    return people.filter(({ name, age }) => (!nameFilter || name === nameFilter) && 
+                                            (!minAge || age > minAge));
 }
 
-const peopleBiggerThan40 = getPeople({ age: 40 });
+const peopleBiggerThan40 = getPeople({ minAge: 40 });
 
 console.log(peopleBiggerThan40); 
 // result => [
@@ -262,7 +266,7 @@ console.log(peopleBiggerThan40);
 
 ```
 
-Hemos destructurado el objeto _person_ dentro de la _arrow function_ del _map_. Así todo queda mucho más conciso y claro y no hace falta usar _person._ para poder acceder a las propiedades de _person_.
+Hemos destructurado el objeto _person_ dentro de la _arrow function_ del _filter_. Así todo queda mucho más conciso y claro y no hace falta usar _person._ para poder acceder a las propiedades de _person_.
 
 ### Destructuring múltiple
 
@@ -298,7 +302,7 @@ const people = [
 ]
 
 function getPeople({ nameFilter, minAge }) {
-    return people.map({ ({ name: personName }), age: personAge } => (nameFilter || personName === name) && (personAge || personAge > minAge));
+    return people.filter({ names: { name }, age } => (!nameFilter || name === nameFilter) && (!minAge || personAge > minAge));
 }
 
 const peopleBiggerThan40 = getPeople({ age: 40 });
@@ -332,6 +336,42 @@ console.log(third);
 ```
 
 Este _array_ de _arrays_ ha sido destructurado. Si lo analizamos el elemento _'apple'_ ha sido destructurado de una manera simple. En cambio _'banana'_ está dentro de un _array_ que a la vez está dentro de un _array_ y hemos podido hacer el _destructuring_ múltiple sin ningún problema. _'orange'_ finalmente es un elemento dentro de un _array_ por lo que su nivel de destructuración ha sido de 2.
+
+### Importación de módulos de ES6
+
+Otro uso muy interesante del _destructuring_ es en la importación de módulos de es6. En lugar de importarnos el objeto entero podemos destructurarlo:
+
+Sin _destructuring_:
+
+```javascript
+
+import React from 'react';
+
+export class App extends React.Component {
+	render() {
+		return (
+			<div>hello world!</div>
+		);
+	}
+}
+
+```
+
+Con _destructuring_:
+
+```javascript
+
+import React, { Component } from 'react';
+
+export class App extends Component {
+	render() {
+		return (
+			<div>hello world!</div>
+		);
+	}
+}
+
+```
 
 ### Destructuring en React
 
