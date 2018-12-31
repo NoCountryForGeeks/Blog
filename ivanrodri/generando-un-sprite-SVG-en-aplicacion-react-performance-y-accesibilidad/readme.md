@@ -435,4 +435,25 @@ También podemos hacer que cada uno de los vectores de nuestro svg reaccione a s
 
 ![Multi tooltip](./images/MultiTooltip.gif) 
 
+## Soporte para IE11
+
+**IE11** no soporta la etiqueta ```<use>``` por lo que si ejecutamos la app en **IE11** no vamos a ver nada. Para conseguir que funcione tenemos que usar un polyfill, en mi caso voy a usar [svgxuse](https://github.com/Keyamoon/svgxuse).
+
+1. ```npm install svgxuse``` o ```yarn add svgxuse```
+2. En el fichero de entrada de la aplicación (index.js) o en el caso de tener un fichero de polyfills, añadir 
+```javascript 
+import 'svgxuse'
+```
+3. Crear un estilo global (recomiendo solo aplicarlo para IE11) que aplique a la clase **sprite-symbol-usage** un display block.
+
+```css
+   sprite-symbol-usage {
+       display: block !important;
+   } 
+```
+
+Con estos 3 pasos ya tendremos visibles nuestros svg en **IE11**.
+
+
+
 De esta manera conseguiremos darle un poco mas de accesibilidad a nuestra web y así ayudar a que personas con discapacidad visual puedan usar nuestra web sin problemas ya que son los más olvidados.
