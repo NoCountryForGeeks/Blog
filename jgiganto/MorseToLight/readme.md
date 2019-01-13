@@ -3,4 +3,4 @@ Muy buenas, en esta ocasión vamos a aprender a realizar una app con Xamarin par
 Para ello vamos a apoyarnos en la API multiplataforma Xamarin Essentials, la cual permite hacer uso de los sensores del dispositivo (giroscopio, brújula, etc..) de una manera sencilla.
 Comenzamos:
 Abrimos un nuevo proyecto en Visual Studio. En este caso nuestro proyecto será del tipo Xamarin.forms como se indica en la imagen.
-![GitHub Logo](/images/image1.png)
+![image1](/images/image1.png)
