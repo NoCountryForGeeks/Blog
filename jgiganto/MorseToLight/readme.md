@@ -4,20 +4,21 @@ Para ello vamos a apoyarnos en la API multiplataforma Xamarin Essentials, la cua
 Comenzamos:
 Abrimos un nuevo proyecto en Visual Studio. En este caso nuestro proyecto será del tipo Xamarin.forms como se indica en la imagen.
 
-![image1](/images/image1.png)
+
+![image1](images/image1.png)
 
 Además vamos a instalar el paquete Nugget Xamarin Essentials, que nos permitirá hacer uso del flash de la cámara.
 
-![image2](/images/image2.png)
+![image2](images/image2.png)
 
 Para ello es importante que marquemos la casilla Include prerelease, ya que al ser una versión pre-lanzamiento si no la marcamos no nos aparecerá.
 Ahora necesitamos dar permisos a nuestra APP para que pueda hacer uso del flash, para ello debemos editar el archivo AssemblyInfo.cs en Android e incluir las siguientes líneas de código.
 
-![image3](/images/image3.png)
+![image3](images/image3.png)
 
 Nos crearemos una Carperta Views y dentro de ella una vista del tipo ContentPage:
 
-![image4](/images/image4.png)
+![image4](images/image4.png)
 
 En este tipo de elementos podremos incluir la parte visual (archivo XAML) , donde crearemos cuatro botones y un "entry" donde escribiremos el texto a traducir , además podremos implementar  la parte lógica de nuestra APP en el archivo CS de nuestro ContentPage.
 En el archivo XAML escribiremos el siguiente código:
@@ -300,5 +301,6 @@ private void Btnmorse_Clicked(object sender, EventArgs e)
         }
 ```
 
-Espero que os haya gustado, esta APP es totalmente funcional para teléfonos Android con una version 4.4 o superiores; os dejaré un enlace GitHub por si queréis probar la APP en vuestros teléfonos.
-Un saludo .
+Espero que os haya gustado, esta APP es totalmente funcional para teléfonos Android con una version 4.4 o superiores.
+
+Un saludo.
