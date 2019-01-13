@@ -194,6 +194,8 @@ private void Btnmorse_Clicked(object sender, EventArgs e)
         }
 ```
 
-Espero que os haya gustado, esta APP es totalmente funcional para teléfonos Android con una version 4.4 o superiores.
+Espero que os haya gustado, esta APP es totalmente funcional para teléfonos Android con una version 4.4 o superiores; os dejaré un enlace GitHub por si queréis probar la APP en vuestros teléfonos.
 
 Un saludo.
+
+https://github.com/jgiganto/MorseToLight
