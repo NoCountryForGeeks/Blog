@@ -1,3 +1,5 @@
+![Header](images/header.jpg)
+
 # No mas condicionales anidados, abraza el patrón estrategia
 
 [English version](https://www.carlosjdelgado.com/no-more-nested-conditionals-embrace-the-strategy-pattern/)
