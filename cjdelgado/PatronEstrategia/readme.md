@@ -1,14 +1,14 @@
 ![Header](images/header.jpg)
 
-# No mas condicionales anidados, abraza el patrón estrategia
+# No más condicionales anidados, abraza el patrón estrategia
 
 [English version](https://www.carlosjdelgado.com/no-more-nested-conditionals-embrace-the-strategy-pattern/)
 
-Hace algunos dias un compañero de equipo formuló la siguiente pregunta en nuestro chat:
+Hace algunos días un compañero de equipo formuló la siguiente pregunta en nuestro chat:
 
-"Tengo un controller que llama a una clase, dependiendo del valor del parametro que se le pasa al controller el metodo al que se llama puede hacer una cosa u otra"
+"Tengo un controller que llama a una clase, dependiendo del valor del parámetro que se le pasa al controller el método al que se llama puede hacer una cosa u otra"
 
-El codigo que queria refactorizar era algo como esto (solo un ejemplo):
+El código que quería refactorizar era algo como esto (solo un ejemplo):
 
 ```csharp
 public int DoMathematicalOperation (string @operator, int a, int b)
@@ -33,13 +33,13 @@ public int DoMathematicalOperation (string @operator, int a, int b)
 
 //METODOS PARA SUMAR, MULTIPLICAR Y DIVIDIR
 ```
-¿Quien no se ha encontrado nunca en esta situación? El product owner necesita una nueva funcionalidad para la aplicación, pero esta funcionalidad tiene algunas excepciones que cambian todo el comportamiento para algunos casos. Por ejemplo, tienes un servicio de busqueda de vuelos que usa un servicio externo para devolver todos los vuelos disponibles en un dia, pero hay algunas rutas que usan otro servicio para obtener esos vuelos, en este caso el comportamiento cambia completamente.
+¿Quien no se ha encontrado nunca en esta situación? El product owner necesita una nueva funcionalidad para la aplicación, pero esta funcionalidad tiene algunas excepciones que cambian todo el comportamiento para algunos casos. Por ejemplo, tienes un servicio de búsqueda de vuelos que usa un servicio externo para devolver todos los vuelos disponibles en un día, pero hay algunas rutas que usan otro servicio para obtener esos vuelos, en este caso el comportamiento cambia completamente.
 
-Otro caso puede ser si cambias una funcionalidad pero el product owner quiere que este inactiva en el entorno de produccion hasta que el departamento de marketing (por ejemplo) lo apruebe, en ese caso querras usar una feature flag en tus settings que cambian el comportamiento.
+Otro caso puede ser si cambias una funcionalidad, pero el product owner quiere que este inactiva en el entorno de producción hasta que el departamento de marketing (por ejemplo) lo apruebe, en ese caso querrás usar una feature flag en tus settings que cambian el comportamiento.
 
-Volviendo a nuestro ejemplo anterior es obvio que hay mas de una implementacion de una operacion matematica con 2 operadores, el codigo anterior no respeta la S de los principios SOLID porque esta asumiendo mas de una responsabilidad al mismo tiempo (sumar, multiplicar y dividir), puede ser refactorizado separandolo para tener una implementación por operacion matematica usando una interface como molde.
+Volviendo a nuestro ejemplo anterior es obvio que hay más de una implementación de una operación matemática con 2 operadores, el código anterior no respeta la S de los principios SOLID porque está asumiendo más de una responsabilidad al mismo tiempo (sumar, multiplicar y dividir), puede ser refactorizado separándolo para tener una implementación por operación matematica usando una interfaz como molde.
 
-Esta es la interface base de nuestro refactor:
+Esta es la interfaz base de nuestro refactor:
 
 ```csharp
 public interface IMathematicalOperation 
@@ -82,7 +82,7 @@ public class DivideOperation : IMathematicalOperation
     }
 }
 ```
-Sobre este escenario es facil de implementar un patrón estrategia, recuerda que cada operación depende del simbolo de operador que se le pase (+, *, /) entonces, ¿porque no presentar el operador como una nueva propiedad en cada implementacion?
+Sobre este escenario es fácil de implementar un patrón estrategia, recuerda que cada operación depende del símbolo de operador que se le pase (+, *, /) entonces, ¿porque no presentar el operador como una nueva propiedad en cada implementación?
 
 ```csharp
 public interface IMathematicalOperation 
@@ -133,7 +133,7 @@ public class DivideOperation : IMathematicalOperation
 
 Es el momento de añadir una nueva clase en la ecuación: el resolver.
 
-El resolver de este caso tiene la responsabilidad de devolver la implementación correcta de una operación matematica a partir del simbolo de operador pasado como parametro.
+El resolver de este caso tiene la responsabilidad de devolver la implementación correcta de una operación matemática a partir del símbolo de operador pasado como parámetro.
 
 ```csharp
 public class MathematicalOperationResolver
@@ -159,7 +159,7 @@ public class MathematicalOperationResolver
 
 Ten en cuenta que esto es solo un ejemplo, puedes pasar todas las implementaciones en una lista usando tu sistema favorito de DI.
 
-Con tu resolver implementado entonces puedes refactorizar el codigo original, y el resultado quedaría tal que asi:
+Con tu resolver implementado entonces puedes refactorizar el código original, y el resultado quedaría tal que así:
 
 ```csharp
 public int DoMathematicalOperation(string @operator, int a, int b)
@@ -170,6 +170,6 @@ public int DoMathematicalOperation(string @operator, int a, int b)
 }
 ```
 
-Has visto? todos los condicionales anidados se han eliminado y el codigo ahora es mas mantenible, ten esto en cuenta cuando vuelvas a encontrarte con esta situación.
+¿Has visto? todos los condicionales anidados se han eliminado y el código ahora es más mantenible, ten esto en cuenta cuando vuelvas a encontrarte con esta situación.
 
 Happy coding!
