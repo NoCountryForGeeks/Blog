@@ -6,7 +6,7 @@
 
 Hace algunos días un compañero de equipo formuló la siguiente pregunta en nuestro chat:
 
-"Tengo un controller que llama a una clase, dependiendo del valor del parámetro que se le pasa al controller el método al que se llama puede hacer una cosa u otra"
+> Tengo un controller que llama a una clase, dependiendo del valor del parámetro que se le pasa al controller el método al que se llama puede hacer una cosa u otra.
 
 El código que quería refactorizar era algo como esto (solo un ejemplo):
 
@@ -82,7 +82,7 @@ public class DivideOperation : IMathematicalOperation
     }
 }
 ```
-Sobre este escenario es fácil de implementar un patrón estrategia, recuerda que cada operación depende del símbolo de operador que se le pase (+, *, /) entonces, ¿porque no presentar el operador como una nueva propiedad en cada implementación?
+Sobre este escenario es fácil de implementar un [patrón estrategia](https://en.wikipedia.org/wiki/Strategy_pattern), recuerda que cada operación depende del símbolo de operador que se le pase (+, *, /) entonces, ¿porque no presentar el operador como una nueva propiedad en cada implementación?
 
 ```csharp
 public interface IMathematicalOperation 
@@ -138,7 +138,7 @@ El resolver de este caso tiene la responsabilidad de devolver la implementación
 ```csharp
 public class MathematicalOperationResolver
 {
-    private List&lt;IMathematicalOperation> _mathematicalOperationImplementations;
+    private List<IMathematicalOperation> _mathematicalOperationImplementations;
 
     public MathematicalOperationResolver()
     {
